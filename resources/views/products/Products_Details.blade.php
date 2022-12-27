@@ -13,6 +13,12 @@
                     <p class="card-text">{{$product1->price}} LE</p>
                     <p class="card-text">{{$product1->description}}</p>
                     <p class="card-text">Call 0{{$product1->mobile}} To Communicate </p>
+                    <br>
+                    @if($product1->logo)
+                        <img style="width:30vw" src="{{asset("$product1->logo")}}"/>
+                    @else
+                        <h4 style="font-weight: bold"> There is  No image Uploaded </h4>
+                    @endif
                 </div>
             </div>
         </div>
