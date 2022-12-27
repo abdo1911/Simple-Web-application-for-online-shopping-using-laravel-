@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->integer("price");
             $table->integer("description");
             $table->integer("mobile");
+            $table->string('logo');
             $table->timestamps();
         });
     }

@@ -33,3 +33,8 @@ Route::get('/', [App\Http\Controllers\ProductController::class, 'index'])->name(
 Route::get('products/{product1}', [App\Http\Controllers\ProductController::class, 'show'])->name('products.details');
 Route::get('products', [App\Http\Controllers\ProductController::class, 'create'])->name('products.create')->middleware('auth');
 Route::post('products', [App\Http\Controllers\ProductController::class, 'store'])->name('products.store')->middleware('auth');
+
+Route::get('comment',[App\Http\Controllers\CommintController::class,'store'])->name('comment')->middleware('auth');
+Route::get('handleSubmit',[App\Http\Controllers\CommintController::class,'handleSubmit'])->name('handleSubmit');
+Route::get('showComment',[App\Http\Controllers\CommintController::class,'showComment'])->name('showComment')->middleware('auth');
+

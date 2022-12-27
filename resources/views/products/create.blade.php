@@ -9,7 +9,7 @@
     <br>
 
 
-    <form class="m-5" method="post" action="{{route('products.store')}}">
+    <form class="m-5" method="post" enctype="multipart/form-data" action="{{route('products.store')}}">
         @csrf
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Name</label>
@@ -33,6 +33,11 @@
                 <option value="{{$cat->id}}">{{$cat->name}}</option>
             @endforeach
         </select>
+        <br>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Logo</label>
+            <input type='file' name="logo" class="form-control" placeholder="Enter Email...">
+        </div>
 
         <br>
         <button type="submit" class="btn btn-primary">Insert</button>
