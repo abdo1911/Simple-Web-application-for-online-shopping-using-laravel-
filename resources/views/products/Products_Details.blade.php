@@ -4,7 +4,7 @@
 
     <h1 style="text-align: center">{{$product1->name}} details</h1>
 
-    <div class="row mt-5">
+    <div style="text-align: center;justify-content: center" class="row mt-5">
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-body">
