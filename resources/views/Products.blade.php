@@ -99,7 +99,7 @@
     <br>
 
 @empty
-    <h2>There are no products Yet</h2>
+    <h2 style="text-align: center">There are no products Yet</h2>
 
 @endforelse
 

@@ -20,7 +20,7 @@
         <br>
         <br>
         @empty
-            <h2>There are no Information</h2>
+            <h2 style="text-align: center">There are no Comments yet</h2>
     @endforelse
     <div>{{$results->links()}}</div>
     <style>
