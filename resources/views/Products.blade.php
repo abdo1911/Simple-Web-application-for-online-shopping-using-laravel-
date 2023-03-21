@@ -86,6 +86,8 @@
             <br>
             <br>
             <a href="{{route('products.details',$product->id)}}" class="btn btn-primary">Details</a>
+            <a href="{{route('products.edit',$product->id)}}" class="btn btn btn-success">Edit</a>
+            <a href="{{route('products.delete',$product->id)}}" method="delete" class="btn btn btn-danger">Delete</a>
         </div>
         <div class="card-footer text-muted">
             {{$product->created_at}}

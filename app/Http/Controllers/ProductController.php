@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\category;
 use App\Models\product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -26,10 +27,18 @@ class ProductController extends Controller
         return view('products.Products_Details',compact('product1'));
     }
 
-    //function delete()
-    //{
-    //return "deleted";
-    //}
+    function delete(product $product)
+    {
+        Storage::delete($product);
+        $product->delete();
+        return redirect()->back()->with('status',"Product Deleted Successfully");
+    }
+
+    function edit(product $product)
+    {
+        $categories = category::all();
+        return view('products.edit',compact('categories','product'));
+    }
 
 
     function store(Request $request)
@@ -51,6 +60,27 @@ class ProductController extends Controller
         catch (\Exception $e){
             dd($e);
             return redirect()->back()->with('status',"faild");
+        }
+    }
+    function Update(Request $request, product $product)
+    {
+        try
+        {
+            $this->validate($request,['name'=>['required','max:200'],'price'=>'required','description'=>'required','mobile'=>'required','logo'=>'required']);
+            $file = $request->file('logo');
+            $path="";
+            if($file)
+            {
+                $filename = Str::uuid().$file->getClientOriginalName();
+                $file->move(public_path('images'),$filename);
+                $path ='images/'.$filename;
+            }
+            $product->update(['name'=>$request->name,'price'=>$request->price,'category_id'=>$request->category_id,'description'=>$request->description,'mobile'=>$request->mobile,'logo'=>$path]);
+            return redirect()->route('product')->with('status',"updated succussfuly");
+        }
+        catch (\Exception $e){
+            dd($e);
+            return redirect()->back()->with('status',"failed");
         }
     }
 }
