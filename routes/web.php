@@ -36,6 +36,8 @@ Route::post('products', [App\Http\Controllers\ProductController::class, 'store']
 Route::get('products_edit/{product}', [App\Http\Controllers\ProductController::class, 'edit'])->name('products.edit')->middleware('auth');
 Route::post('products_update/{product}', [App\Http\Controllers\ProductController::class, 'update'])->name('products.update')->middleware('auth');
 Route::get('products_delete/{product}', [App\Http\Controllers\ProductController::class, 'delete'])->name('products.delete')->middleware('auth');
+Route::get('category', [App\Http\Controllers\CategoryController::class, 'createcat'])->name('cat.create')->middleware('auth');
+Route::post('category', [App\Http\Controllers\CategoryController::class, 'storecat'])->name('cat.store')->middleware('auth');
 
 Route::get('comment',[App\Http\Controllers\CommintController::class,'store'])->name('comment')->middleware('auth');
 Route::get('handleSubmit',[App\Http\Controllers\CommintController::class,'handleSubmit'])->name('handleSubmit');

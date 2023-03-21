@@ -45,6 +45,7 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="{{route('products.create')}}">Create Products</a>
+    <a href="{{route('cat.create')}}">Create Category</a>
     <a href="{{route('comment')}}">Comment</a>
     <a href="{{route('showComment')}}">Review Comments</a>
 </div>

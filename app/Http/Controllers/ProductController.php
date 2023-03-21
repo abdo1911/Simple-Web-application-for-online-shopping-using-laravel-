@@ -40,7 +40,6 @@ class ProductController extends Controller
         return view('products.edit',compact('categories','product'));
     }
 
-
     function store(Request $request)
     {
         try
@@ -55,7 +54,7 @@ class ProductController extends Controller
                 $path ='images/'.$filename;
             }
             product::create(['name'=>$request->name,'price'=>$request->price,'category_id'=>$request->category_id,'description'=>$request->description,'mobile'=>$request->mobile,'logo'=>$path])->save();
-            return redirect()->route('product')->with('status',"inserted succussfuly");
+            return redirect()->route('product')->with('status',"Inserted Product Successfully");
         }
         catch (\Exception $e){
             dd($e);
@@ -76,7 +75,7 @@ class ProductController extends Controller
                 $path ='images/'.$filename;
             }
             $product->update(['name'=>$request->name,'price'=>$request->price,'category_id'=>$request->category_id,'description'=>$request->description,'mobile'=>$request->mobile,'logo'=>$path]);
-            return redirect()->route('product')->with('status',"updated succussfuly");
+            return redirect()->route('product')->with('status',"updated Successfully");
         }
         catch (\Exception $e){
             dd($e);
