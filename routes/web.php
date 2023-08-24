@@ -39,7 +39,17 @@ Route::get('products_delete/{product}', [App\Http\Controllers\ProductController:
 Route::get('category', [App\Http\Controllers\CategoryController::class, 'createcat'])->name('cat.create')->middleware('auth');
 Route::post('category', [App\Http\Controllers\CategoryController::class, 'storecat'])->name('cat.store')->middleware('auth');
 
-Route::get('comment',[App\Http\Controllers\CommintController::class,'store'])->name('comment')->middleware('auth');
-Route::get('handleSubmit',[App\Http\Controllers\CommintController::class,'handleSubmit'])->name('handleSubmit');
-Route::get('showComment',[App\Http\Controllers\CommintController::class,'showComment'])->name('showComment')->middleware('auth');
+Route::get('comment', [App\Http\Controllers\CommintController::class, 'store'])->name('comment')->middleware('auth');
+Route::get('handleSubmit', [App\Http\Controllers\CommintController::class, 'handleSubmit'])->name('handleSubmit');
+Route::get('showComment', [App\Http\Controllers\CommintController::class, 'showComment'])->name('showComment')->middleware('auth');
 
+Route::post('pay', [\App\Http\Controllers\PaymentController::class, 'pay'])->name('payment');
+Route::get('success', [\App\Http\Controllers\PaymentController::class, 'success']);
+Route::get('error', [\App\Http\Controllers\PaymentController::class, 'error']);
+
+Route::get('find', [\App\Http\Controllers\PaymentController::class, 'find'])->name('f');
+
+Route::get('main', function () {
+    $price = request()->input('price');
+    return view('pay', compact("price" ));
+});

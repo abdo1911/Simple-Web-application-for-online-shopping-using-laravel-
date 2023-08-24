@@ -19,6 +19,18 @@
                     @else
                         <h4 style="font-weight: bold"> There is  No image Uploaded </h4>
                     @endif
+                    <br>
+                    <br>
+                    <a href="{{"/main?price=$product1->price"}}"  class="btn btn btn-danger">Pay</a>
+                    <form action="{{route('payment')}}" method="post">
+                        @csrf
+                        <input  name="amount" value="{{$product1->price}}" hidden>
+
+                        <button id="btn1" type="submit">
+                            Pay with PayPal
+                        </button>
+                    </form>
+
                 </div>
             </div>
         </div>

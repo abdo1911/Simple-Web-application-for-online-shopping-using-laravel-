@@ -48,6 +48,8 @@
     <a href="{{route('cat.create')}}">Create Category</a>
     <a href="{{route('comment')}}">Comment</a>
     <a href="{{route('showComment')}}">Review Comments</a>
+    <a href ="{{route('f')}}"> Last transactions </a>
+
 </div>
 
 <script>
