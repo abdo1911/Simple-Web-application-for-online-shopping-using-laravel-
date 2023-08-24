@@ -21,7 +21,7 @@
                     @endif
                     <br>
                     <br>
-                    <a href="{{"/main?price=$product1->price"}}"  class="btn btn btn-danger">Pay</a>
+{{--                    <a href="{{"/main?price=$product1->price"}}"  class="btn btn btn-danger">Pay</a>--}}
                     <form action="{{route('payment')}}" method="post">
                         @csrf
                         <input  name="amount" value="{{$product1->price}}" hidden>
